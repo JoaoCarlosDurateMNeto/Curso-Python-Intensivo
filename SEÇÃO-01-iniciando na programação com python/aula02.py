@@ -30,4 +30,5 @@
 
 
 # =========== uma introdução a f-strings(formatação de strings): ============================
-ola
+nome = "gabriel souza"
+print("ola")
