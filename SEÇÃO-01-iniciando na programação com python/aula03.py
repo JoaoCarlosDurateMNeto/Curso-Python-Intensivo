@@ -6,12 +6,20 @@
 # ->  Conversa - tipos built-in, documentação, tipo imutáveis, métodos de string
 
 
+#  WHILE
 # ->  while e break - Estrutura de repetição (Parte 1)
 # ->  while - Condição em detalhes
 # ->  Operadores de atribuição com operadores aritméticos
 # ->  while + continue - pulando alguma repetição
 # ->  while + while (laços internos)
+# ->  while / else (recurso peculiar do Python)
+# ->  while - Qual letra apareceu mais vezes na frase? (Iterando strings com while)
 
+#   FOR
+# -> Introdução ao for / in - estrutura de repetição para coisas finitas
+# -> range + for para usar intervalos de números
+# -> Como o for funciona por baixo dos panos? (next, iter, iterável e iterador)
+# -> O que aprendemos com while também funciona no for (continue, break, else, etc)
 #===========================================================================
 
 
@@ -148,7 +156,7 @@ Repetições
 while (enquanto)
 Executa uma ação enquanto uma condição for verdadeira
 Loop infinito -> Quando um código não tem fim
-"""
+
 condicao = True
 
 while condicao:
@@ -159,7 +167,7 @@ while condicao:
         break
 
 print('Acabou')
-
+"""
 
 
 
@@ -242,6 +250,9 @@ print('Acabou')
 
 
 
+
+
+
 #=================  while + while (laços internos) ===================
 
 """
@@ -275,3 +286,275 @@ while linha <= qtd_linhas:
 print('Acabou')
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#==================== while/else (recurso peculiar do Python) ==================
+""" 
+     while / else
+     
+    => Recomendavel não Usar; 
+""" 
+string = 'Valorqualquer'
+
+i = 0
+while i < len(string):
+    letra = string[i]
+
+    if letra == ' ':
+        break
+
+    print(letra)
+    i += 1
+else:
+    print('Não encontrei um espaço na string.')
+    
+print('Fora do while.')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#====== while - Qual letra apareceu mais vezes na frase? (Iterando strings com while) ======
+frase = 'O Python é uma Linguagem de Programação' \
+        'multiparadigma' \
+        'Python Foi criado Por Guidon van Russon'
+
+
+# Resposta do professor: ( Quantas vezes a palavra apareceu, o python e case sensitive )
+# print(frase.count("Python")) # resposta simples e direta ao ponto
+
+i=0
+qtd_apareceu_mais_vezes = 0
+letra_apareceu_mais_vezes = ''
+espaco = 0
+while i < len(frase):
+    letra_atual = frase[i]
+    quantas_vezes_apareceu_atual = frase.count(letra_atual)
+    
+    # pulando/ignorando os espaços e voltando direto para o while sem considerar o resto abaixo
+    if letra_atual == " ":
+        i += 1 # se o continue executar o encrementador deve estar no inicio para evitar um loop infinito
+        continue
+    
+    # contando a letra que mais apareceu ignorando os caracteres de espaços
+    if (qtd_apareceu_mais_vezes < quantas_vezes_apareceu_atual) and (letra_atual != " "):
+         qtd_apareceu_mais_vezes = quantas_vezes_apareceu_atual
+         letra_apareceu_mais_vezes = letra_atual 
+    
+    # contando somente os espaços
+    #if (qtd_apareceu_mais_vezes < quantas_vezes_apareceu_atual) and (letra_atual == " "):
+    #    espaco = quantas_vezes_apareceu_atual
+         
+    i += 1
+    
+print(f"A Letra {letra_apareceu_mais_vezes} apareceu => {qtd_apareceu_mais_vezes} veze(s)")
+#print(f"o numero de espaços foi {espaco}")
+
+###################### minha solução temporária: ###################
+# cont=0 #Contador
+# i=0    #Quantidade de letras
+# letra = input("Qual letra você busca? \n")  #Letra buscada
+
+# while cont < len(frase):
+#     if frase[cont] == letra:
+#         i+=1
+#     cont += 1
+# print(f"apareçeu {i} o numero de '{letra}' na frase.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#============= Introdução ao for / in - estrutura de repetição para coisas finitas =====================
+
+# utilizamos "for" para coisas que tem uma determinada quantidade de tamanho determinada;
+
+# senha_salva = '123456'
+# senha_digitada = ''
+# repeticoes = 0
+
+# while senha_salva != senha_digitada:
+#     senha_digitada = input(f'Sua senha ({repeticoes}x): ')
+
+#     repeticoes += 1
+
+# print(repeticoes)
+# print('Aquele laço acima pode ter repetições infinitas')
+
+# Iteravel entrega um valor por vez
+texto = 'Python'
+
+novo_texto = ''
+for letra in texto:
+    novo_texto += f'*{letra}'
+    print(letra)
+    
+print(novo_texto + '*')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#======================== range + for para usar intervalos de números =================================
+"""
+For + Range
+range -> range(start, stop, step)
+"""
+numeros = range(0, 100, 8)
+
+for numero in numeros:
+    print(numero)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+#=========== Como o for funciona por baixo dos panos? (next, iter, iterável e iterador) ==================
+"""
+Iterável -> str, range, etc (__iter__)
+Iterador -> quem sabe entregar um valor por vez
+next -> me entregue o próximo valor
+iter -> me entregue seu iterador
+"""
+# for letra in texto
+texto = 'Luiz'  # iterável
+
+# print(texto.__next__()) -> L
+# print(texto.__next__()) -> u
+# print(texto.__next__()) -> i
+
+# iteratador = iter(texto)  # iterator
+
+# while True:
+#     try:
+#         letra = next(iteratador)
+#         print(letra)
+#     except StopIteration:
+#         break
+
+for letra in texto:
+    print(letra)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+#=================== O que aprendemos com while também funciona no for (continue, break, else, etc) =======================
+for i in range(10):
+    if i == 2:
+        print('i é 2, pulando...')
+        continue
+
+    if i == 8:
+        print('i é 8, seu else não executará')
+        break
+
+    for j in range(1, 3):
+        print(i, j)
+else:
+    print('For completo com sucesso!')

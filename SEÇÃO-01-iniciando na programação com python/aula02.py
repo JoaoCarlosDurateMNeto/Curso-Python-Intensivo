@@ -7,7 +7,7 @@
 
 # -> introdução aos blocos (condicionais): if / elif / else 
 # -> if/elif/else => entendendo o fluxo do interpretador em condicionais;
-# -> o Debugger do VSCODE e o interpretador do Python lendo os códigos;
+# -> o Debugger do VSCODE e o interpretador do Python lendo os códigos; (extra/opcional)
 
 # -> Operadores Relacionais(de comparação) em Python;
 # -> Operadores Lógicos(and, or, not);
