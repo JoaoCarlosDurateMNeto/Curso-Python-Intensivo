@@ -15,6 +15,10 @@
 
 # -> Imprecisão dos números de ponto flutuante + round e decimal.Decimal
 
+# -> split, join e strip são métodos muito úteis da str
+
+# -> Listas dentro de listas (iteráveis dentro de iteráveis)
+
 #======================================================================
 
 
@@ -139,6 +143,8 @@ Métodos úteis:
     extend - estende a lista
     remove - remove um valor escolhido
     + - concatena listas
+    sort - organiza uma lista em ordem alfabetica
+    reverse - organiza uma lista de traz para frente
 Create Read Update   Delete
 Criar, ler, alterar, apagar = lista[i] (CRUD)
 """
@@ -445,4 +451,120 @@ for indice, nome in enumerate(lista): # fazendo desempacotamento(ou multipla-atr
 
 
 #================ Imprecisão dos números de ponto flutuante + round e decimal.Decimal ================
+"""
+Imprecisão de ponto flutuante
+Double-precision floating-point format IEEE 754
+https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+https://docs.python.org/pt-br/3/tutorial/floatingpoint.html
+"""
+import decimal
 
+numero_1 = decimal.Decimal('0.1') # modulo do python decimal, para trabalahar, quando necessário, de forma mais precisa, passar uma "string" no lugar de um "float" ou "int";
+numero_2 = decimal.Decimal('0.7')
+numero_3 = numero_1 + numero_2
+print(numero_3)
+print(f'{numero_3:.2f}')
+print(round(numero_3, 2)) # round(valor, n°de_casas_decimais)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#==================== split, join e strip são métodos muito úteis da str ======================
+
+"""
+split e join com list e str
+split - divide uma string (list)
+join - une uma string
+
+strip - corta espaços do começo e do fim; (lstrip - esquerda), (rstrip - direita) 
+"""
+
+frase = '   Olha só que   , coisa interessante          '
+lista_frases_cruas = frase.split(',') # mais para frente aprenderemos "expressao regular" e faremos cortes mais refinados;
+
+lista_frases = []
+for i, frase in enumerate(lista_frases_cruas):
+    lista_frases.append(lista_frases_cruas[i].strip())
+
+# print(lista_frases_cruas)
+# print(lista_frases)
+frases_unidas = ', '.join(lista_frases)
+print(frases_unidas)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#================= Listas dentro de listas (iteráveis dentro de iteráveis) ================
+"""
+Lista de listas e seus índices
+"""
+salas = [
+    # 0        1
+    ['Maria', 'Helena', ],  # 0
+    
+    # 0
+    ['Elaine', ],  # 1
+    
+    # 0       1       2
+    ['Luiz', 'João', 'Eduarda', ],  # 2
+]
+
+# print(salas[1][0])
+# print(salas[0][1])
+# print(salas[2][2])
+# print(salas[2][3][3])
+
+for sala in salas:
+    print(f'A sala é {sala}')
+    for aluno in sala:
+        print(aluno)
