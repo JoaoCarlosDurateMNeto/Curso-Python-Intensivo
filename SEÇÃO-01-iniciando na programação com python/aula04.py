@@ -19,6 +19,10 @@
 
 # -> Listas dentro de listas (iteráveis dentro de iteráveis)
 
+# -> Desempacotamento em chamadas de funções
+
+# -> Operação ternária com Python (if e else de uma linha)
+
 #======================================================================
 
 
@@ -143,8 +147,8 @@ Métodos úteis:
     extend - estende a lista
     remove - remove um valor escolhido
     + - concatena listas
-    sort - organiza uma lista em ordem alfabetica
-    reverse - organiza uma lista de traz para frente
+    sort - organiza permanentemente uma lista em ordem alfabetica - podemos tbm sort(reverse=true)
+    reverse - exibe uma lista de traz para frente, de sua original
 Create Read Update   Delete
 Criar, ler, alterar, apagar = lista[i] (CRUD)
 """
@@ -568,3 +572,98 @@ for sala in salas:
     print(f'A sala é {sala}')
     for aluno in sala:
         print(aluno)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#========================= Desempacotamento em chamadas de funções ============================
+# Desempacotamento em chamadas
+# de métodos e funções
+string = 'ABCD'
+lista = ['Maria', 'Helena', 1, 2, 3, 'Eduarda']
+tupla = 'Python', 'é', 'legal'
+salas = [
+    # 0        1
+    ['Maria', 'Helena', ],  # 0
+    # 0
+    ['Elaine', ],  # 1
+    # 0       1       2
+    ['Luiz', 'João', 'Eduarda', ],  # 2
+]
+
+# p, b, *_, ap, u = lista
+# print(p, u, ap)
+
+# print('Maria', 'Helena', 1, 2, 3, 'Eduarda')
+# print(*lista) # => 'Maria', 'Helena', 1, 2, 3, 'Eduarda'
+# print(*string)
+# print(*tupla)
+
+print(*salas, sep='\n') # sep - separador de lista/strings,tuplas...iteraveis     
+#saida: 
+    # ['Maria', 'Helena', ]  
+    # ['Elaine', ]
+    # ['Luiz', 'João', 'Eduarda', ]
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+
+#==================== Operação ternária com Python (if e else de uma linha) ======================
+"""
+Operação ternária (condicional de uma linha)
+<valor> if <condicao> else <outro valor>
+"""
+# condicao = 10 == 11
+# variavel = 'Valor' if condicao else 'Outro valor'
+# print(variavel)
+# digito = 9  # > 9 = 0
+# novo_digito = digito if digito <= 9 else 0
+# novo_digito = 0 if digito > 9 else digito
+# print(novo_digito)
+print('Valor' if False else 'Outro valor' if False else 'Fim')
