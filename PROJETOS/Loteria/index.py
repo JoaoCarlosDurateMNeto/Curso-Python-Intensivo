@@ -56,7 +56,7 @@ def pegar_val_do_historico_da_sena(historico):
 
 
 
-# testando a saida:
+# Testando a Saída:
 valores = pegar_val_do_historico_da_sena(historico_de_numeros_sorteados)
 total = totalDeSena(1, 50)
 
