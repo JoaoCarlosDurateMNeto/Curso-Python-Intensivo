@@ -4,6 +4,10 @@
 
 # -> Argumentos nomeados e argumentos posicionais (não nomeados) em funções
 # -> Valores padrão para parâmetros em funções Python + NoneType e None
+
+# -> (Parte 1 e 2) Escopo de funções e módulos em Python + global
+
+# -> Retorno de valores das funções (return)
 #======================================================================================
 
 
@@ -119,14 +123,110 @@ enviado para o parâmetro, o valor padrão será
 usado.
 Refatorar: editar o seu código.
 """
+
 def soma(x, y, z=None):
     if z is not None:
-        print(f'{x=} {y=} {z=}', x + y + z)
+        print(f"{x=} {y=} {z=}", x+y+z)
     else:
-        print(f'{x=} {y=}', x + y)
+        print(f"{x=} {y=}", x+y)
+        
 soma(1, 2)
 soma(3, 5)
 soma(100, 200)
 soma(7, 9, 0)
 soma(y=9, z=0, x=7)
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#============== (Parte 1 e 2) Escopo de funções e módulos em Python + global =========================
+"""
+Escopo de funções em Python
+Escopo significa o local onde aquele código pode atingir.
+Existe o escopo global e local.
+O escopo global é o escopo onde todo o código é alcançavel.
+O escopo local é o escopo onde apenas nomes do mesmo local
+podem ser alcançados.
+Não temos acesso a nomes de escopos internos nos escopos externos.
+A palavra 'global' faz uma variavel do escopo externo ser a mesma no escopo interno.
+"""
+
+
+x = 1
+
+
+def escopo():
+    global x   # apenas para aprendizado, pois isso e má prática; 
+    x = 10     # alterar variaveis de escopo global tbm e má pratica;
+    
+    def outra_funcao():
+        global x
+        x = 11
+        y = 2
+        print(x, y)
+        
+    outra_funcao()
+    print(x)
+
+
+print(x)
+escopo()
+print(x)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#============== Retorno de valores das funções (return) =============================
+
+
+
 
