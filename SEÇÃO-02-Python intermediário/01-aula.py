@@ -8,6 +8,8 @@
 # -> (Parte 1 e 2) Escopo de funções e módulos em Python + global
 
 # -> Retorno de valores das funções (return)
+
+# -> (Parte 1 e 2) *args para quantidade de argumentos não nomeados variáveis
 #======================================================================================
 
 
@@ -225,8 +227,33 @@ print(x)
 
 
 
-#============== Retorno de valores das funções (return) =============================
+#=================== Retorno de valores das funções (return) =============================
+
+"""
+Retorno de valores das funções (return)
+"""
+
+
+def soma(x, y):
+    if x > 10:
+        return [10, 20]
+    return x + y
+
+
+# variavel = soma(1, 2)
+# variavel = int('1')
+soma1 = soma(2, 2)
+soma2 = soma(3, 3)
+print(soma1)
+print(soma2)
+print(soma(11, 55))
 
 
 
+
+
+
+
+
+#=========== (Parte 1 e 2) *args para quantidade de argumentos não nomeados variáveis ==========
 
