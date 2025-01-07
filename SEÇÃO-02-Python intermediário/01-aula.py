@@ -10,6 +10,8 @@
 # -> Retorno de valores das funções (return)
 
 # -> (Parte 1 e 2) *args para quantidade de argumentos não nomeados variáveis
+
+# -> Higher Order Functions - Funções de primeira classe
 #======================================================================================
 
 
@@ -255,5 +257,101 @@ print(soma(11, 55))
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #=========== (Parte 1 e 2) *args para quantidade de argumentos não nomeados variáveis ==========
 
+"""
+args - Argumentos não nomeados
+* - *args (empacotamento e desempacotamento), args(sao tuplas mas podemos alteralos para listas)
+"""
+# e apartir da estrelinha que havera o empacotamento - (colocara os parametros nao nomeados em uma tupla);
+# Lembre-te de desempacotamento
+# x, y, *resto = 1, 2, 3, 4
+# print(x, y, resto)
+
+
+# def soma(x, y):
+#     return x + y
+
+def soma(*args):
+    total = 0
+    for numero in args:
+        total += numero
+    return total
+
+
+soma_1_2_3 = soma(1, 2, 3)
+# print(soma_1_2_3)
+
+soma_4_5_6 = soma(4, 5, 6)
+# print(soma_4_5_6)
+
+numeros = 1, 2, 3, 4, 5, 6, 7, 78, 10 # Basicamente uma tupla, pois argumentos nao nomeados funcionam com tuplas
+outra_soma = soma(*numeros) # aqui nesse caso ha um desempacotamento pois ja tem uma tupla; entao para nao ficar uma tupla dentro de outra, será realizado o desempacotamento atraves de '*';
+print(outra_soma)
+
+print(sum(numeros)) # a função soma ja realiza a soma, mas tem que passar uma tupla para ela
+# print(*numeros)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ============== Higher Order Functions - Funções de primeira classe ===================
+"""
+Higher Order Functions
+Funções de primeira classe
+"""
+
+
+def saudacao(msg, nome):
+    return f'{msg}, {nome}!'
+
+
+def executa(funcao, *args):
+    return funcao(*args)
+
+
+print(
+    executa(saudacao, 'Bom dia', 'Luiz')
+)
+print(
+    executa(saudacao, 'Boa noite', 'Maria')
+)
