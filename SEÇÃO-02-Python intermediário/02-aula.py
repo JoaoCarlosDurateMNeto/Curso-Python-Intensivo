@@ -3,10 +3,12 @@
 # -> Introdução ao tipo de dados dict - Dicionários em Python
 # -> Manipulando chaves e valores em dicionários em Python
 # -> (Parte 1) Métodos úteis nos dicionários Python (dict)
-
 # -> Shallow Copy vs Deep Copy em dados mutáveis Python
-
 # -> (Parte 2) Métodos úteis nos dicionários Python (dict)
+
+# -> Introdução ao tipo set em Python (conjuntos)
+
+
 
 
 
@@ -332,5 +334,47 @@ lista = [['nome', 'novo valor'], ['idade', 30]] # -> igual a de cima porém com 
 p1.update(lista)
 
 print(p1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ================ Introdução ao tipo set em Python (conjuntos) ====================
+
+
+
+
+
 
 
