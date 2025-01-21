@@ -12,6 +12,8 @@
 # -> (Parte 1 e 2) *args para quantidade de argumentos não nomeados variáveis
 
 # -> Higher Order Functions - Funções de primeira classe
+
+# -> Closure e funções que retornam outras funções
 #======================================================================================
 
 
@@ -339,8 +341,23 @@ print(sum(numeros)) # a função soma ja realiza a soma, mas tem que passar uma 
 Higher Order Functions
 Funções de primeira classe
 """
+"""
+ Academicamente, os termos 
+ Higher Order Functions e First-Class Functions 
+ têm significados diferentes.
 
+Higher Order Functions - Funções que podem receber e/ou retornar outras funções
 
+First-Class Functions - Funções que são tratadas como outros tipos de dados comuns (strings, inteiros, etc...)
+
+Não faria muita diferença no seu 
+código, mas penso que deveria lhe informar isso.
+
+Observação: esses termos podem ser 
+diferentes e ainda refletir o mesmo significado.
+"""
+
+# very very bisonho!!!!
 def saudacao(msg, nome):
     return f'{msg}, {nome}!'
 
@@ -349,9 +366,62 @@ def executa(funcao, *args):
     return funcao(*args)
 
 
-print(
-    executa(saudacao, 'Bom dia', 'Luiz')
-)
-print(
-    executa(saudacao, 'Boa noite', 'Maria')
-)
+print(executa(saudacao, 'Bom dia', 'Luiz'))
+print(executa(saudacao, 'Boa noite', 'Maria'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ================= Closure e funções que retornam outras funções ==========================
+
+"""
+Closure e funções que retornam outras funções
+"""
+
+def criar_saudacao(saudacao):
+    def saudar(nome):
+        return f'{saudacao}, {nome}!'
+    return saudar
+
+falar_bom_dia = criar_saudacao('Bom dia')
+falar_boa_noite = criar_saudacao('Boa noite')
+
+for nome in ['Maria', 'Joana', 'Luiz']:
+    print(falar_bom_dia(nome))
+    print(falar_boa_noite(nome))
+
+
+
+
