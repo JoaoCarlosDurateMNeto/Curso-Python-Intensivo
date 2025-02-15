@@ -10,11 +10,7 @@
 # -> Peculiaridades do tipo mutável set em Python
 # -> Métodos úteis do tipo set em Python
 # -> Operadores importantes para o tipo set (conjuntos)
-
-
-
-
-
+# -> Exemplo de uso do tipo set
 #======================================================================================
 
 
@@ -578,3 +574,36 @@ s3 = s1 & s2
 s3 = s2 - s1
 s3 = s1 ^ s2
 print(s3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#======================= Exemplo de uso do tipo set ======================================
+# Exemplo de uso dos sets
+# pode digitanr varias vezes a mesma letra mas sempre manterá uma
+letras = set()
+while True:
+    letra = input('Digite: ')
+    letras.add(letra.lower())
+
+    if 'l' in letras:
+        print('PARABÉNS')
+        break
+
+    print(letras)
